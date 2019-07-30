@@ -55,13 +55,13 @@ def delete_student_name(name):
 		name=name).delete()
 	session.commit()
 
-def update_lab_status(name, finished_lab):
+def update_lab_status(student_id, finished_lab):
 	"""
 	Update a student in the database, with 
 	whether or not they have finished the lab
 	"""
 	student_object = session.query(Student).filter_by(
-		name=name).first()
+		student_id=student_id).first()
 	student_object.finished_lab = finished_lab
 	session.commit()
 
